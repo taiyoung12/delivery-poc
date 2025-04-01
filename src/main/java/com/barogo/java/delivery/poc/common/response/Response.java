@@ -1,6 +1,7 @@
-package com.barogo.java.delivery.poc.common;
+package com.barogo.java.delivery.poc.common.response;
 
-import org.aspectj.apache.bcel.classfile.Code;
+import com.barogo.java.delivery.poc.common.code.Code;
+import com.barogo.java.delivery.poc.common.code.CommonCode;
 
 import lombok.Getter;
 
