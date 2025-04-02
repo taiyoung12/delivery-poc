@@ -2,7 +2,7 @@ package com.barogo.java.delivery.poc.service;
 
 import org.springframework.stereotype.Service;
 
-import com.barogo.java.delivery.poc.dto.request.UserSignupRequestDTO;
+import com.barogo.java.delivery.poc.dto.request.UserSignupRequest;
 import com.barogo.java.delivery.poc.entity.User;
 import com.barogo.java.delivery.poc.repository.UserRepository;
 
@@ -15,7 +15,7 @@ public class UserCreator {
 		this.userRepository = userRepository;
 	}
 
-	public void signUp(UserSignupRequestDTO requestDTO) {
+	public void signUp(UserSignupRequest requestDTO) {
 		User user = User.builder()
 			.email(requestDTO.getEmail())
 			.password(requestDTO.getPassword())

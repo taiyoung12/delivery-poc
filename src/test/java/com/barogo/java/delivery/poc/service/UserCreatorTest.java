@@ -8,7 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.barogo.java.delivery.poc.dto.request.UserSignupRequestDTO;
+import com.barogo.java.delivery.poc.dto.request.UserSignupRequest;
 import com.barogo.java.delivery.poc.repository.UserRepository;
 
 @ExtendWith(MockitoExtension.class)
@@ -30,7 +30,7 @@ public class UserCreatorTest {
 		String password = "barogo1234";
 		String name = "바로고";
 
-		UserSignupRequestDTO requestDTO = new UserSignupRequestDTO();
+		UserSignupRequest requestDTO = new UserSignupRequest();
 		requestDTO.setEmail(email);
 		requestDTO.setPassword(password);
 		requestDTO.setName(name);

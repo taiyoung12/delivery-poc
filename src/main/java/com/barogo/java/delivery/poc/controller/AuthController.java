@@ -1,14 +1,12 @@
 package com.barogo.java.delivery.poc.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.barogo.java.delivery.poc.common.response.Response;
-import com.barogo.java.delivery.poc.dto.request.UserSignupRequestDTO;
+import com.barogo.java.delivery.poc.dto.request.UserSignupRequest;
 import com.barogo.java.delivery.poc.service.UserCreator;
 
 import jakarta.validation.Valid;
@@ -24,7 +22,7 @@ public class AuthController {
 	}
 
 	@PostMapping("/signup")
-	public Response<User> signup(@Valid @RequestBody UserSignupRequestDTO requestDTO) {
+	public Response<User> signup(@Valid @RequestBody UserSignupRequest requestDTO) {
 		User user = userCreator.signUp(requestDTO);
 		return Response.success(user);
 	}
