@@ -6,7 +6,7 @@ spring:
     password: barogo1234
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
       hibernate:
         globally_quoted_identifiers: false
