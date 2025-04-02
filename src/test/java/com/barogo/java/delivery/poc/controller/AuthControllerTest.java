@@ -3,6 +3,9 @@ package com.barogo.java.delivery.poc.controller;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.*;
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
+import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -14,6 +17,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.MediaType;
+import org.springframework.restdocs.RestDocumentationContextProvider;
+import org.springframework.restdocs.RestDocumentationExtension;
+import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -21,7 +27,7 @@ import com.barogo.java.delivery.poc.dto.request.UserSignupRequest;
 import com.barogo.java.delivery.poc.service.UserCreator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@ExtendWith(MockitoExtension.class)
+@ExtendWith({RestDocumentationExtension.class, MockitoExtension.class})
 public class AuthControllerTest {
 
 	@Mock
@@ -34,9 +40,10 @@ public class AuthControllerTest {
 	private ObjectMapper objectMapper = new ObjectMapper();
 
 	@BeforeEach
-	void setUp() {
+	void setUp(RestDocumentationContextProvider restDocumentation) {
 		mockMvc = MockMvcBuilders
 			.standaloneSetup(authController)
+			.apply(documentationConfiguration(restDocumentation))
 			.build();
 	}
 
@@ -54,7 +61,21 @@ public class AuthControllerTest {
 				.content(objectMapper.writeValueAsString(request)))
 			.andExpect(jsonPath("$.code").value("US200"))
 			.andExpect(jsonPath("$.data").isEmpty())
-			.andExpect(jsonPath("$.message").value("회원가입에 성공하였습니다."));
+			.andExpect(jsonPath("$.message").value("회원가입에 성공하였습니다."))
+			.andDo(document("auth-signup",
+				preprocessRequest(prettyPrint()),
+				preprocessResponse(prettyPrint()),
+				requestFields(
+					fieldWithPath("email").type(JsonFieldType.STRING).description("사용자 이메일"),
+					fieldWithPath("password").type(JsonFieldType.STRING).description("사용자 비밀번호 (12자 이상)"),
+					fieldWithPath("name").type(JsonFieldType.STRING).description("사용자 이름")
+				),
+				responseFields(
+					fieldWithPath("code").type(JsonFieldType.STRING).description("응답 코드"),
+					fieldWithPath("message").type(JsonFieldType.STRING).description("응답 메시지"),
+					fieldWithPath("data").type(JsonFieldType.NULL).description("응답 데이터 (없음)")
+				)
+			));
 
 		verify(userCreator).signUp(any(UserSignupRequest.class));
 	}
@@ -71,7 +92,11 @@ public class AuthControllerTest {
 		mockMvc.perform(post("/api/v1/auth/signup")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(request)))
-			.andExpect(status().isBadRequest());
+			.andExpect(status().isBadRequest())
+			 .andDo(document("auth-signup-email-null",
+				preprocessRequest(prettyPrint()),
+				preprocessResponse(prettyPrint())
+			));
 	}
 
 	@Test
@@ -85,7 +110,11 @@ public class AuthControllerTest {
 		mockMvc.perform(post("/api/v1/auth/signup")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(request)))
-			.andExpect(status().isBadRequest());
+			.andExpect(status().isBadRequest())
+			.andDo(document("auth-signup-short-password",
+				preprocessRequest(prettyPrint()),
+				preprocessResponse(prettyPrint())
+			));
 	}
 
 	@Test
@@ -99,7 +128,11 @@ public class AuthControllerTest {
 		mockMvc.perform(post("/api/v1/auth/signup")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(request)))
-			.andExpect(status().isBadRequest());
+			.andExpect(status().isBadRequest())
+			.andDo(document("auth-signup-null-password",
+				preprocessRequest(prettyPrint()),
+				preprocessResponse(prettyPrint())
+			));
 	}
 
 	@Test
@@ -113,6 +146,10 @@ public class AuthControllerTest {
 		mockMvc.perform(post("/api/v1/auth/signup")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(request)))
-			.andExpect(status().isBadRequest());
+			.andExpect(status().isBadRequest())
+			.andDo(document("auth-signup-null-name",
+				preprocessRequest(prettyPrint()),
+				preprocessResponse(prettyPrint())
+			));
 	}
 }
