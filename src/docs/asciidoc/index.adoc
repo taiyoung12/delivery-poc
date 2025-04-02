@@ -1,0 +1,34 @@
+= API 문서
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+
+== 회원가입 API
+
+=== 성공적인 회원가입
+include::{snippets}/auth-signup/curl-request.adoc[]
+include::{snippets}/auth-signup/http-request.adoc[]
+include::{snippets}/auth-signup/request-fields.adoc[]
+include::{snippets}/auth-signup/response-fields.adoc[]
+include::{snippets}/auth-signup/http-response.adoc[]
+
+=== 실패 케이스
+
+==== 이메일 Null
+include::{snippets}/auth-signup-email-null/http-request.adoc[]
+include::{snippets}/auth-signup-email-null/http-response.adoc[]
+
+==== 짧은 패스워드
+include::{snippets}/auth-signup-short-password/http-request.adoc[]
+include::{snippets}/auth-signup-short-password/http-response.adoc[]
+
+==== Null 패스워드
+include::{snippets}/auth-signup-null-password/http-request.adoc[]
+include::{snippets}/auth-signup-null-password/http-response.adoc[]
+
+==== Null 이름
+include::{snippets}/auth-signup-null-name/http-request.adoc[]
+include::{snippets}/auth-signup-null-name/http-response.adoc[]
