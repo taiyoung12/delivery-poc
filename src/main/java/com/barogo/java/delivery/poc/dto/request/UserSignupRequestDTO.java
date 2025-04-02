@@ -1,4 +1,4 @@
-package com.barogo.java.delivery.poc.dto;
+package com.barogo.java.delivery.poc.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

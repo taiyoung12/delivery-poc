@@ -8,7 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.barogo.java.delivery.poc.dto.UserSignupRequestDTO;
+import com.barogo.java.delivery.poc.dto.request.UserSignupRequestDTO;
 import com.barogo.java.delivery.poc.repository.UserRepository;
 
 @ExtendWith(MockitoExtension.class)

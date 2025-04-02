@@ -1,9 +1,12 @@
 package com.barogo.java.delivery.poc.service;
 
-import com.barogo.java.delivery.poc.dto.UserSignupRequestDTO;
+import org.springframework.stereotype.Service;
+
+import com.barogo.java.delivery.poc.dto.request.UserSignupRequestDTO;
 import com.barogo.java.delivery.poc.entity.User;
 import com.barogo.java.delivery.poc.repository.UserRepository;
 
+@Service
 public class UserCreator {
 
 	private final UserRepository userRepository;
