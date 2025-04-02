@@ -14,7 +14,7 @@ import com.barogo.java.delivery.poc.service.UserCreator;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/v1/auth")
 public class AuthController {
 
 	private final UserCreator userCreator;
