@@ -1,0 +1,3 @@
+jwt:
+  secretKey: "barogo-super-secret-key-barogo-super-secret-key"
+  accessTokenExpiration: 600000 # 60 * 10 * 1000 = 10minutes
