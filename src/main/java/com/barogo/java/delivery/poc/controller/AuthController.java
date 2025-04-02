@@ -1,5 +1,7 @@
 package com.barogo.java.delivery.poc.controller;
 
+import static com.barogo.java.delivery.poc.common.code.AuthCode.*;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +24,8 @@ public class AuthController {
 	}
 
 	@PostMapping("/signup")
-	public Response<User> signup(@Valid @RequestBody UserSignupRequest requestDTO) {
-		User user = userCreator.signUp(requestDTO);
-		return Response.success(user);
+	public Response<Void> signup(@Valid @RequestBody UserSignupRequest requestDTO) {
+		userCreator.signUp(requestDTO);
+		return Response.success(USER_SIGN_UP_SUCCESS);
 	}
 }
