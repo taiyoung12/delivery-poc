@@ -1,6 +1,5 @@
 package com.barogo.java.delivery.poc.service;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -10,7 +9,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.barogo.java.delivery.poc.dto.UserSignupRequestDTO;
-import com.barogo.java.delivery.poc.entity.User;
 import com.barogo.java.delivery.poc.repository.UserRepository;
 
 @ExtendWith(MockitoExtension.class)
@@ -27,7 +25,7 @@ public class UserCreatorTest {
 	}
 
 	@Test
-	void requestDTO가_정상으로_들어오면_userRepository를_호출할_수_있다(){
+	void requestDTO가_들어오면_userRepository를_호출할_수_있다(){
 		String email = "barogo@barogo.com";
 		String password = "barogo1234";
 		String name = "바로고";
