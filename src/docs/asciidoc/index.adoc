@@ -1,0 +1,27 @@
+== Auth API
+
+=== 회원가입
+
+==== CURL 요청 예시
+include::{snippets}/auth-signup/curl-request.adoc[]
+
+==== HTTP 요청 예시
+include::{snippets}/auth-signup/http-request.adoc[]
+
+==== HTTPie 요청 예시
+include::{snippets}/auth-signup/httpie-request.adoc[]
+
+==== 요청 본문
+include::{snippets}/auth-signup/request-body.adoc[]
+
+==== 요청 필드
+include::{snippets}/auth-signup/request-fields.adoc[]
+
+==== 응답 예시
+include::{snippets}/auth-signup/http-response.adoc[]
+
+==== 응답 본문
+include::{snippets}/auth-signup/response-body.adoc[]
+
+==== 응답 필드
+include::{snippets}/auth-signup/response-fields.adoc[]
