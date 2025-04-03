@@ -4,9 +4,15 @@ spring:
     url: jdbc:mysql://localhost:3306/barogo?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
     username: barogo
     password: barogo1234
+
+  sql:
+    init:
+      mode: always
+
   jpa:
+    defer-datasource-initialization: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
     properties:
       hibernate:
         globally_quoted_identifiers: false
