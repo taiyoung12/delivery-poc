@@ -9,8 +9,8 @@ import com.barogo.java.delivery.poc.common.config.app.annotation.UserEmail;
 import com.barogo.java.delivery.poc.common.response.Response;
 import com.barogo.java.delivery.poc.dto.request.DeliveryReadRequest;
 import com.barogo.java.delivery.poc.dto.response.DeliveryReadResponse;
-import com.barogo.java.delivery.poc.service.DeliveryReader;
-import com.barogo.java.delivery.poc.service.UserReader;
+import com.barogo.java.delivery.poc.service.delivery.DeliveryReader;
+import com.barogo.java.delivery.poc.service.user.UserReader;
 
 import jakarta.validation.Valid;
 

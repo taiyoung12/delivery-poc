@@ -1,4 +1,4 @@
-package com.barogo.java.delivery.poc.service;
+package com.barogo.java.delivery.poc.service.user;
 
 import static com.barogo.java.delivery.poc.common.code.UserCode.*;
 

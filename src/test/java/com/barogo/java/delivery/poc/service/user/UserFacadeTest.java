@@ -1,4 +1,4 @@
-package com.barogo.java.delivery.poc.service;
+package com.barogo.java.delivery.poc.service.user;
 
 import static com.barogo.java.delivery.poc.common.code.UserCode.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,6 +14,8 @@ import com.barogo.java.delivery.poc.common.config.token.JwtGenerator;
 import com.barogo.java.delivery.poc.common.exception.BaseException;
 import com.barogo.java.delivery.poc.common.utils.PasswordMatcher;
 import com.barogo.java.delivery.poc.entity.User;
+import com.barogo.java.delivery.poc.service.user.UserFacade;
+import com.barogo.java.delivery.poc.service.user.UserReader;
 
 @ExtendWith(MockitoExtension.class)
 public class UserFacadeTest {

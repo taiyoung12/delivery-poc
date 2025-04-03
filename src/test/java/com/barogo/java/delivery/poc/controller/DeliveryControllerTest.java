@@ -30,8 +30,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.barogo.java.delivery.poc.common.exception.GlobalExceptionHandler;
 import com.barogo.java.delivery.poc.dto.response.DeliveryReadResponse;
 import com.barogo.java.delivery.poc.entity.User;
-import com.barogo.java.delivery.poc.service.DeliveryReader;
-import com.barogo.java.delivery.poc.service.UserReader;
+import com.barogo.java.delivery.poc.service.delivery.DeliveryReader;
+import com.barogo.java.delivery.poc.service.user.UserReader;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith({RestDocumentationExtension.class, MockitoExtension.class})

@@ -1,4 +1,4 @@
-package com.barogo.java.delivery.poc.service;
+package com.barogo.java.delivery.poc.service.delivery;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.barogo.java.delivery.poc.service;
+package com.barogo.java.delivery.poc.service.user;
 
 import static org.mockito.Mockito.*;
 
@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.barogo.java.delivery.poc.dto.request.UserSignupRequest;
 import com.barogo.java.delivery.poc.repository.UserRepository;
+import com.barogo.java.delivery.poc.service.user.UserCreator;
 
 @ExtendWith(MockitoExtension.class)
 public class UserCreatorTest {

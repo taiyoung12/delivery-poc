@@ -1,18 +1,19 @@
-package com.barogo.java.delivery.poc.service;
+package com.barogo.java.delivery.poc.service.delivery;
 
 import static com.barogo.java.delivery.poc.common.code.DeliveryCode.*;
-import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.barogo.java.delivery.poc.common.exception.BaseException;
 import com.barogo.java.delivery.poc.entity.Delivery;
+import com.barogo.java.delivery.poc.service.delivery.DeliveryFacade;
+import com.barogo.java.delivery.poc.service.delivery.DeliveryReader;
+import com.barogo.java.delivery.poc.service.delivery.DeliveryUpdater;
 import com.barogo.java.delivery.poc.validation.AddressValidator;
 
 public class DeliveryFacadeTest {

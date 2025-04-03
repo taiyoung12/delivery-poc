@@ -1,4 +1,4 @@
-package com.barogo.java.delivery.poc.service;
+package com.barogo.java.delivery.poc.service.user;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -14,6 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.barogo.java.delivery.poc.common.exception.BaseException;
 import com.barogo.java.delivery.poc.entity.User;
 import com.barogo.java.delivery.poc.repository.UserRepository;
+import com.barogo.java.delivery.poc.service.user.UserReader;
 
 @ExtendWith(MockitoExtension.class)
 public class UserReaderTest {

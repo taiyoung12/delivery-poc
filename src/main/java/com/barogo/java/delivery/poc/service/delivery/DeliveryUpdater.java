@@ -1,4 +1,4 @@
-package com.barogo.java.delivery.poc.service;
+package com.barogo.java.delivery.poc.service.delivery;
 
 import org.springframework.stereotype.Service;
 
