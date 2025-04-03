@@ -1,5 +1,6 @@
 package com.barogo.java.delivery.poc.service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.barogo.java.delivery.poc.dto.request.UserSignupRequest;
@@ -10,16 +11,20 @@ import com.barogo.java.delivery.poc.repository.UserRepository;
 public class UserCreator {
 
 	private final UserRepository userRepository;
+	private final PasswordEncoder passwordEncoder;
 
-	public UserCreator(UserRepository userRepository) {
+	public UserCreator(UserRepository userRepository, PasswordEncoder passwordEncoder) {
 		this.userRepository = userRepository;
+		this.passwordEncoder = passwordEncoder;
 	}
 
-	public void signUp(UserSignupRequest requestDTO) {
+	public void signUp(UserSignupRequest userSignupRequest) {
+		String encodePassword = passwordEncoder.encode(userSignupRequest.getPassword());
+
 		User user = User.builder()
-			.email(requestDTO.getEmail())
-			.password(requestDTO.getPassword())
-			.name(requestDTO.getName())
+			.email(userSignupRequest.getEmail())
+			.password(encodePassword)
+			.name(userSignupRequest.getName())
 			.build();
 
 		userRepository.save(user);
