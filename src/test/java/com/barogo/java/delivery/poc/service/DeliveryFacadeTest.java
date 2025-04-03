@@ -13,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.barogo.java.delivery.poc.common.exception.BaseException;
 import com.barogo.java.delivery.poc.entity.Delivery;
+import com.barogo.java.delivery.poc.validation.AddressValidator;
 
 public class DeliveryFacadeTest {
 
@@ -22,12 +23,15 @@ public class DeliveryFacadeTest {
 	@Mock
 	private DeliveryUpdater deliveryUpdater;
 
+	@Mock
+	private AddressValidator addressValidator;
+
 	private DeliveryFacade sut;
 
 	@BeforeEach
 	void setUp() {
 		MockitoAnnotations.openMocks(this);
-		sut = new DeliveryFacade(deliveryReader, deliveryUpdater);
+		sut = new DeliveryFacade(deliveryReader, deliveryUpdater, addressValidator);
 	}
 
 	@Test
@@ -38,6 +42,7 @@ public class DeliveryFacadeTest {
 		Delivery delivery = new Delivery();
 		delivery.setAddress("기존 주소");
 
+		when(addressValidator.isValid(newAddress)).thenReturn(true);
 		when(deliveryReader.findDeliveryBy(deliveryId)).thenReturn(delivery);
 
 		sut.updateDeliveryAddress(deliveryId, newAddress);
@@ -47,10 +52,30 @@ public class DeliveryFacadeTest {
 	}
 
 	@Test
+	void 요청온_배송지_주소가_잘못된_주소라면_예외를_처리할_수_있다() {
+		Long deliveryId = 1L;
+		String newAddress = "서울시 송파구 신천동 88";
+
+		Delivery delivery = new Delivery();
+		delivery.setAddress("잘못된 주소");
+
+		when(deliveryReader.findDeliveryBy(deliveryId)).thenReturn(delivery);
+		when(addressValidator.isValid(newAddress)).thenReturn(false);
+
+		assertThrows(BaseException.class, () -> {
+			sut.updateDeliveryAddress(deliveryId, newAddress);
+		});
+
+		verify(deliveryReader, never()).findDeliveryBy(deliveryId);
+		verify(deliveryUpdater, never()).updateDelivery(delivery, newAddress);
+	}
+
+	@Test
 	void 존재하지_않는_배송ID라면_예외를_던진다() {
 		Long invalidId = 999L;
 		String newAddress = "서울시 동작구 장승배기로 210";
 
+		when(addressValidator.isValid(newAddress)).thenReturn(true);
 		when(deliveryReader.findDeliveryBy(invalidId))
 			.thenThrow(new BaseException(NOT_FOUND_DELIVERY_BY_ID));
 
