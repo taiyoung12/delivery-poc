@@ -3,10 +3,13 @@ package com.barogo.java.delivery.poc.common.config.token;
 import java.security.Key;
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
+@Component
 public class JwtGenerator {
 	private final JwtProperties jwtProperties;
 	private final Key secretKey;
