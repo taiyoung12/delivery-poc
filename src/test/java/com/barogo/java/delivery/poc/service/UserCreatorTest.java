@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.barogo.java.delivery.poc.dto.request.UserSignupRequest;
 import com.barogo.java.delivery.poc.repository.UserRepository;
@@ -17,11 +18,17 @@ public class UserCreatorTest {
 	@Mock
 	private UserRepository userRepository;
 
+	@Mock
+	private PasswordEncoder passwordEncoder;
+
 	private UserCreator sut;
 
 	@BeforeEach
 	void setUp() {
-		sut = new UserCreator(userRepository);
+		sut = new UserCreator(
+			 userRepository,
+			 passwordEncoder
+		);
 	}
 
 	@Test
