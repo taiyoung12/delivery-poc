@@ -22,6 +22,6 @@ public class UserCreator {
 			.name(requestDTO.getName())
 			.build();
 
-		User savedUer = userRepository.save(user);
+		userRepository.save(user);
 	}
 }
