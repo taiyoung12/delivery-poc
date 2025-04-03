@@ -13,4 +13,6 @@ public interface DeliveryRepository extends Repository<Delivery, Long> {
 		LocalDateTime startDate,
 		LocalDateTime endDate
 	);
+
+	void save(Delivery delivery);
 }
