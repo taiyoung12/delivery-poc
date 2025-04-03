@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import com.barogo.java.delivery.poc.validation.PasswordValidator;
+
 import jakarta.validation.ConstraintValidatorContext;
 
 public class PasswordValidatorTest {

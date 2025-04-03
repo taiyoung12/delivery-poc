@@ -1,7 +1,5 @@
 package com.barogo.java.delivery.poc.dto.request;
 
-import com.barogo.java.delivery.poc.dto.validation.ValidPassword;
-
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;

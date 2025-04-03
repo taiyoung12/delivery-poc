@@ -1,4 +1,4 @@
-package com.barogo.java.delivery.poc.dto.validation;
+package com.barogo.java.delivery.poc.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
