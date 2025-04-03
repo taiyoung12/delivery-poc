@@ -18,7 +18,7 @@ import com.barogo.java.delivery.poc.service.UserReader;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/delivery")
 public class DeliveryController {
 	private final DeliveryReader deliveryReader;
 	private final UserReader userReader;
@@ -28,7 +28,7 @@ public class DeliveryController {
 		this.userReader = userReader;
 	}
 
-	@GetMapping("/deliveries")
+	@GetMapping
 	public Response<DeliveryReadResponse> findDelivery(
 		@UserEmail String email,
 		@Valid DeliveryReadRequest request
