@@ -48,10 +48,10 @@ public class AuthControllerTest {
 	}
 
 	@Test
-	void 회원가입_요청이_성공하면_200_상태코드와_성공_응답을_반환한다() throws Exception {
+	void 회원가입_요청이_성공하면_200_상태코드와_성공_응답을_반환할_수_있다() throws Exception {
 		UserSignupRequest request = new UserSignupRequest();
 		request.setEmail("test@example.com");
-		request.setPassword("test@example.com");
+		request.setPassword("Password1234!");
 		request.setName("테스트유저");
 
 		doNothing().when(userCreator).signUp(any(UserSignupRequest.class));
@@ -81,7 +81,7 @@ public class AuthControllerTest {
 	}
 
 	@Test
-	void Email이_null이라면_회원가입_요청은_400_상태코드를_반환한다() throws Exception {
+	void Email이_null이라면_회원가입_요청은_400_상태코드를_반환할_수_있다() throws Exception {
 		UserSignupRequest request = new UserSignupRequest();
 
 		request.setEmail(null);
@@ -100,7 +100,7 @@ public class AuthControllerTest {
 	}
 
 	@Test
-	void password가_12자_이하라면_회원가입_요청은_400_상태코드를_반환한다() throws Exception {
+	void password가_12자_이하라면_회원가입_요청은_400_상태코드를_반환할_수_있다() throws Exception {
 		UserSignupRequest request = new UserSignupRequest();
 
 		request.setEmail("barogo@naver.com");
@@ -118,7 +118,7 @@ public class AuthControllerTest {
 	}
 
 	@Test
-	void password가_null_이라면_회원가입_요청은_400_상태코드를_반환한다() throws Exception {
+	void password가_null_이라면_회원가입_요청은_400_상태코드를_반환할_수_있다() throws Exception {
 		UserSignupRequest request = new UserSignupRequest();
 
 		request.setEmail("barogo@naver.com");
@@ -136,7 +136,7 @@ public class AuthControllerTest {
 	}
 
 	@Test
-	void name이_null_이라면_회원가입_요청은_400_상태코드를_반환한다() throws Exception {
+	void name이_null_이라면_회원가입_요청은_400_상태코드를_반환할_수_있다() throws Exception {
 		UserSignupRequest request = new UserSignupRequest();
 
 		request.setEmail("barogo@naver.com");
