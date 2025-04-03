@@ -35,8 +35,6 @@ public class UserCreatorTest {
 		requestDTO.setPassword(password);
 		requestDTO.setName(name);
 
-		when(userRepository.save(any())).thenReturn(any());
-
 		sut.signUp(requestDTO);
 
 		verify(userRepository, times(1)).save(any());
