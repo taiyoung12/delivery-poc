@@ -2,6 +2,7 @@ package com.barogo.java.delivery.poc.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.barogo.java.delivery.poc.dto.request.UserSignupRequest;
 import com.barogo.java.delivery.poc.entity.User;
@@ -18,6 +19,7 @@ public class UserCreator {
 		this.passwordEncoder = passwordEncoder;
 	}
 
+	@Transactional
 	public void signUp(UserSignupRequest userSignupRequest) {
 		String encodePassword = passwordEncoder.encode(userSignupRequest.getPassword());
 
