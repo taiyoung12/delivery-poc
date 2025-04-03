@@ -42,6 +42,8 @@ public class UserReaderTest {
 
 		User actual = sut.findByEmail(email);
 
+		verify(userRepository, times(1)).findByEmail(email);
+
 		assertEquals(user.getEmail(), actual.getEmail());
 		assertEquals(user.getName(), actual.getName());
 	}
@@ -54,6 +56,8 @@ public class UserReaderTest {
 		BaseException exception = assertThrows(BaseException.class, () -> {
 			sut.findByEmail(email);
 		});
+
+		verify(userRepository, times(1)).findByEmail(email);
 
 		assertEquals("email 과 일치하는 유저를 찾을 수 없습니다.", exception.getMessage());
 	}
