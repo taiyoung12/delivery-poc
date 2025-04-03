@@ -1,11 +1,8 @@
 package com.barogo.java.delivery.poc.controller;
 
-import java.time.LocalDateTime;
-
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.barogo.java.delivery.poc.common.config.app.annotation.UserEmail;
@@ -31,9 +28,8 @@ public class DeliveryController {
 	@GetMapping
 	public Response<DeliveryReadResponse> findDelivery(
 		@UserEmail String email,
-		@Valid DeliveryReadRequest request
+		@Valid @ModelAttribute DeliveryReadRequest request
 		) {
-
 		Long userId = userReader.findByEmail(email).getId();
 
 		DeliveryReadResponse deliveryReadResponse = deliveryReader.findDeliveryBy(
