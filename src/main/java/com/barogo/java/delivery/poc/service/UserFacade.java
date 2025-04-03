@@ -22,7 +22,7 @@ public class UserFacade {
 		this.passwordMatcher = passwordMatcher;
 	}
 
-	String userLogin(String email, String password){
+	public String userLogin(String email, String password){
 		User user = userReader.findByEmail(email);
 
 		if (!passwordMatcher.matches(password, user.getPassword())) {
