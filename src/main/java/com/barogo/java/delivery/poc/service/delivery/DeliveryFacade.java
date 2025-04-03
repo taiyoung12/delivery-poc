@@ -22,12 +22,16 @@ public class DeliveryFacade {
 		this.addressValidator = addressValidator;
 	}
 
-	public String updateDeliveryAddress(Long deliveryId, String address){
+	public String updateDeliveryAddress(Long userId, Long deliveryId, String address){
 		if(!addressValidator.isValid(address)){
 			throw new BaseException(NOT_VALIDATED_ADDRESS);
 		}
 
 		Delivery delivery = deliveryReader.findDeliveryBy(deliveryId);
+		if(!delivery.getUserId().equals(userId)){
+			throw new BaseException(NOT_ALLOWED_UPDATE_DELIVERY_ADDRESS);
+		}
+
 		deliveryUpdater.updateDelivery(delivery, address);
 
 		return delivery.getAddress();
