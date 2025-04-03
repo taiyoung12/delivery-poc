@@ -1,26 +1,23 @@
-package com.barogo.java.delivery.poc.service;
+package com.barogo.java.delivery.poc.service.delivery;
 
 import static com.barogo.java.delivery.poc.service.fixture.DeliveryFixture.*;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.barogo.java.delivery.poc.dto.response.DeliveryReadResponse;
 import com.barogo.java.delivery.poc.entity.Delivery;
-import com.barogo.java.delivery.poc.enums.DeliveryStatus;
 import com.barogo.java.delivery.poc.repository.DeliveryRepository;
+import com.barogo.java.delivery.poc.service.delivery.DeliveryReader;
 
 @ExtendWith(MockitoExtension.class)
 class DeliveryReaderTest {

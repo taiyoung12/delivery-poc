@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.barogo.java.delivery.poc.common.response.Response;
 import com.barogo.java.delivery.poc.dto.request.UserSigninRequest;
 import com.barogo.java.delivery.poc.dto.request.UserSignupRequest;
-import com.barogo.java.delivery.poc.service.UserCreator;
-import com.barogo.java.delivery.poc.service.UserFacade;
+import com.barogo.java.delivery.poc.service.user.UserCreator;
+import com.barogo.java.delivery.poc.service.user.UserFacade;
 
 import jakarta.validation.Valid;
 

@@ -1,4 +1,4 @@
-package com.barogo.java.delivery.poc.dto.validation;
+package com.barogo.java.delivery.poc.validation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

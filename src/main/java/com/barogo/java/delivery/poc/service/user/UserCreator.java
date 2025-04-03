@@ -1,4 +1,4 @@
-package com.barogo.java.delivery.poc.service;
+package com.barogo.java.delivery.poc.service.user;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

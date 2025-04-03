@@ -2,6 +2,7 @@ package com.barogo.java.delivery.poc.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.repository.Repository;
 
@@ -13,4 +14,8 @@ public interface DeliveryRepository extends Repository<Delivery, Long> {
 		LocalDateTime startDate,
 		LocalDateTime endDate
 	);
+
+	Optional<Delivery> findById(Long id);
+
+	Delivery save(Delivery delivery);
 }
