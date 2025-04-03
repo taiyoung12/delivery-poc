@@ -32,3 +32,22 @@ include::{snippets}/auth-signup-null-password/http-response.adoc[]
 ==== Null 이름
 include::{snippets}/auth-signup-null-name/http-request.adoc[]
 include::{snippets}/auth-signup-null-name/http-response.adoc[]
+
+== 로그인 API
+
+=== 성공적인 로그인
+include::{snippets}/auth-signin/curl-request.adoc[]
+include::{snippets}/auth-signin/http-request.adoc[]
+include::{snippets}/auth-signin/request-fields.adoc[]
+include::{snippets}/auth-signin/response-fields.adoc[]
+include::{snippets}/auth-signin/http-response.adoc[]
+
+=== 실패 케이스
+
+==== 유저가 없을 때
+include::{snippets}/auth-signin-user-not-found/http-request.adoc[]
+include::{snippets}/auth-signin-user-not-found/http-response.adoc[]
+
+==== 비밀번호가 일치하지 않을 때
+include::{snippets}/auth-signin-password-mismatch/http-request.adoc[]
+include::{snippets}/auth-signin-password-mismatch/http-response.adoc[]
