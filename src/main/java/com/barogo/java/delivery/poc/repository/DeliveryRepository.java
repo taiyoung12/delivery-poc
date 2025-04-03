@@ -17,5 +17,5 @@ public interface DeliveryRepository extends Repository<Delivery, Long> {
 
 	Optional<Delivery> findById(Long id);
 
-	void save(Delivery delivery);
+	Delivery save(Delivery delivery);
 }
