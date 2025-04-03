@@ -4,9 +4,11 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Builder;
+import lombok.Getter;
 
 @Entity
 @Builder
+@Getter
 @Table(name = "users")
 public class User extends BaseEntity {
 
@@ -27,4 +29,5 @@ public class User extends BaseEntity {
 		this.password = password;
 		this.name = name;
 	}
+
 }
