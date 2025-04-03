@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.barogo.java.delivery.poc.common.config.app.annotation.UserEmail;
 import com.barogo.java.delivery.poc.common.response.Response;
+import com.barogo.java.delivery.poc.dto.request.DeliveryReadRequest;
 import com.barogo.java.delivery.poc.dto.response.DeliveryReadResponse;
 import com.barogo.java.delivery.poc.service.DeliveryReader;
 import com.barogo.java.delivery.poc.service.UserReader;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -28,12 +31,16 @@ public class DeliveryController {
 	@GetMapping("/deliveries")
 	public Response<DeliveryReadResponse> findDelivery(
 		@UserEmail String email,
-		@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
-		@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate) {
+		@Valid DeliveryReadRequest request
+		) {
 
 		Long userId = userReader.findByEmail(email).getId();
 
-		DeliveryReadResponse deliveryReadResponse = deliveryReader.findDeliveryBy(userId, startDate, endDate);
+		DeliveryReadResponse deliveryReadResponse = deliveryReader.findDeliveryBy(
+			userId,
+			request.getStartDate(),
+			request.getEndDate()
+		);
 
 		return Response.success(deliveryReadResponse);
 	}
