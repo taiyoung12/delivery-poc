@@ -24,4 +24,53 @@
     [ ] 새로운 도착지 주소는 유효한 형식이어야 한다.   
     [ ] 수정 성공 시, 변경된 배달 정보가 반환될 수 있다.   
     [ ] 수정 불가 상태(배송 중, 완료 등)인 경우 수정 요청은 실패할 수 있다.   
-  
+
+
+# 시작하기
+
+## 사전 요구사항
+
+- Docker
+- Docker Compose
+
+## 실행 방법
+
+1. 프로젝트를 클론합니다.
+
+   ```
+   git clone <repository-url>
+   cd delivery-poc
+   ```
+
+2. Docker Compose를 사용하여 애플리케이션을 실행합니다.
+
+   ```
+   docker-compose up
+   ```
+
+3. 애플리케이션이 실행되면 다음 URL로 접근할 수 있습니다:
+
+    - API 서버: http://localhost:8080
+    - API 문서: http://localhost:8080/docs/index.html
+
+## seed 데이터
+
+애플리케이션에 구동 시 다음과 같은 초기 데이터가 INSERT가 되어집니다:
+
+- 유저 1명
+- 배달 데이터 10건
+
+## 테스트 계정 정보
+
+```json
+{
+  "email": "barogo@naver.com",
+  "password": "Password1234!"
+}
+```
+
+## API 문서
+
+RESTDocs를 통해 API 문서를 제공합니다. 서버 실행 후 아래 URL에서 확인할 수 있습니다:
+
+http://localhost:8080/docs/index.html
