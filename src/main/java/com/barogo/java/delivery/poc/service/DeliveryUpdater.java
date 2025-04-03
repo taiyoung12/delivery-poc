@@ -13,11 +13,11 @@ public class DeliveryUpdater {
 		this.deliveryRepository = deliveryRepository;
 	}
 
-	void updateDelivery(
+	public Delivery updateDelivery(
 		Delivery delivery,
 		String address
 	){
 		delivery.setAddress(address);
-		deliveryRepository.save(delivery);
+		return deliveryRepository.save(delivery);
 	}
 }
