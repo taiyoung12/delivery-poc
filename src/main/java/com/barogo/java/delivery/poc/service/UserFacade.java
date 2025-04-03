@@ -2,6 +2,8 @@ package com.barogo.java.delivery.poc.service;
 
 import static com.barogo.java.delivery.poc.common.code.UserCode.*;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.barogo.java.delivery.poc.common.config.app.annotation.Facade;
 import com.barogo.java.delivery.poc.common.config.token.JwtGenerator;
 import com.barogo.java.delivery.poc.common.exception.BaseException;
@@ -22,6 +24,7 @@ public class UserFacade {
 		this.passwordMatcher = passwordMatcher;
 	}
 
+	@Transactional
 	public String userLogin(String email, String password){
 		User user = userReader.findByEmail(email);
 
