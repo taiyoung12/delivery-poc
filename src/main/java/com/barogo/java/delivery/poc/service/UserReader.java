@@ -16,7 +16,7 @@ public class UserReader {
 		this.userRepository = userRepository;
 	}
 
-	User findByEmail(String email){
+	public User findByEmail(String email){
 		return userRepository.findByEmail(email)
 			.orElseThrow(() -> new BaseException(NOT_FOUND_USER_BY_EMAIL));
 	}
