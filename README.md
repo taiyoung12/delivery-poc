@@ -48,14 +48,14 @@
    docker-compose up
    ```
 
-3. 애플리케이션이 실행되면 다음 URL로 접근할 수 있습니다:
+3. 애플리케이션이 실행되면 다음 URL로 접근할 수 있습니다
 
     - API 서버: http://localhost:8080
     - API 문서: http://localhost:8080/docs/index.html
 
 ## seed 데이터
 
-애플리케이션에 구동 시 다음과 같은 초기 데이터가 INSERT가 되어집니다:
+애플리케이션에 구동 시 다음과 같은 초기 데이터가 INSERT가 되어집니다
 
 - 유저 1명
 - 배달 데이터 10건
@@ -71,6 +71,6 @@
 
 ## API 문서
 
-RESTDocs를 통해 API 문서를 제공합니다. 서버 실행 후 아래 URL에서 확인할 수 있습니다:
+RESTDocs를 통해 API 문서를 제공합니다. 서버 실행 후 아래 URL에서 확인할 수 있습니다
 
 http://localhost:8080/docs/index.html
